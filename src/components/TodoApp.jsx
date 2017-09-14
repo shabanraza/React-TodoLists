@@ -1,30 +1,29 @@
 import React from 'react';
+import TodoList from './TodoList'
+import * as actionCreators from '../action_creators';
+import {connect} from 'react-redux';
 
-export default class TodoApp extends React.Component {
-  getItems() {
-		console.log(this.props.todos)
-    return this.props.todos || [];
+export class TodoApp extends React.Component {
+  constructor(props){
+    super(props);
+    console.log(this.props)
   }
   render() {
+    console.log("props------>"+JSON.stringify(this.props))
     return <div>
       <section className="todoapp">
-        <section className="main">
-          <ul className="todo-list">
-            {this.getItems().map(item =>
-              <li className="active" key={item.text}>
-                <div className="view">
-                  <input type="checkbox"
-                         className="toggle" />
-                  <label htmlFor="todo">
-                    {item.text}
-                  </label>
-                  <button className="destroy"></button>
-                </div>
-              </li>
-            )}
-          </ul>
-        </section>
+        <TodoList {...this.props} />
       </section>
     </div>
   }
 };
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+    todos: state.todos,
+    filter: state.filter,
+    will:"shaban"
+  };
+}
+
+export const TodoAppContainer = connect(mapStateToProps, actionCreators)(TodoApp);
