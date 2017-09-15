@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default class TextInput extends React.Component {
-  constructor(props){
+export default class TodoHeader extends React.Component {
+ constructor(props){
     super(props)
     this.state = {
       text:this.props.text
@@ -17,7 +17,7 @@ export default class TextInput extends React.Component {
                   type="text"
                   value={this.state.text}
                   onChange={this.handleChanges.bind(this)}
-                  onBlur={()=>this.props.doneEditing(this.state.text)}
+                  onKeyPress={(e)=>{e.key=== 'Enter' ? this.props.addtodo(this.state.text):null}}
           />
 
                    

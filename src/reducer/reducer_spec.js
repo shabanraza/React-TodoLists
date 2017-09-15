@@ -86,4 +86,66 @@ describe('reducer', () => {
       ]
     }));
   });
+
+  it('handles CHANGE_FILTER by changing the filter', () => {
+    const initialState = fromJS({
+      todos: [
+        {id: 1, text: 'React', status: 'active'},
+        {id: 2, text: 'Redux', status: 'active'},
+        {id: 3, text: 'Immutable', status: 'completed'}
+      ],
+      filter: 'all'
+    });
+    const action = {
+      type: 'CHANGE_FILTER',
+      filter: 'active'
+    }
+    const nextState = reducer(initialState, action);
+    expect(nextState).to.equal(fromJS({
+      todos: [
+        {id: 1, text: 'React', status: 'active'},
+        {id: 2, text: 'Redux', status: 'active'},
+        ],
+      filter: 'active'
+    }));
+  });
+
+  it('handles EDIT_ITEM by setting editing to true',()=> {
+  const initialState = fromJS({
+      todos: [
+        {id: 1, text: 'React', status: 'active', editing: false},
+      ]
+    });
+    const action = {
+      type: 'EDIT_ITEM',
+      itemId: 1
+    }
+    const nextState = reducer(initialState,action);
+    expect(nextState).to.equal(fromJS({
+      todos: [
+        {id: 1, text: 'React', status: 'active', editing: true},
+      ]
+    }))
+  });
+
+  
+  it('handles DONE_EDITING by setting editing to true',()=> {
+  const initialState = fromJS({
+      todos: [
+        {id: 1, text: 'React', status: 'active', editing: true},
+      ]
+    });
+    const action = {
+      type: 'DONE_EDITING',
+      itemId: 1,
+      newText: 'Redux',
+
+    }
+    const nextState = reducer(initialState,action);
+    expect(nextState).to.equal(fromJS({
+      todos: [
+        {id: 1, text: 'Redux', status: 'active', editing: false},
+      ]
+    }))
+  })
 });

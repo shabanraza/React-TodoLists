@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {List, Map} from 'immutable';
-import {setState}  from './action_creators'
+import {setState}  from './actions/action'
 import '../node_modules/todomvc-app-css/index.css';
+import './style.css'
 
 import {TodoAppContainer} from './components/TodoApp';
 import reducer from './reducer/reducer';
@@ -15,8 +16,6 @@ const createStoreDevTools = compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
 )(createStore);
 const store = createStoreDevTools(reducer,applyMiddleware(logger));
-
-store.dispatch(setState())
 
 ReactDOM.render(
     <Provider store={store}>

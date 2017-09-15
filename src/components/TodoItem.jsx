@@ -10,19 +10,25 @@ export default class TodoItem extends React.Component {
       'completed': this.props.isCompleted,
       'editing': this.props.isEditing
     });
+    const { isCompleted,id,text } = this.props;
     return <li className={itemClass}>
       <div className="view">
-        <input type="checkbox"
+          <input 
+               type="checkbox"
                className="toggle" 
-               defaultChecked={this.props.isCompleted} 
-               onClick={() => this.props.toggleComplete(this.props.id)}
-        />
-        <label htmlFor="todo" onDoubleClick={() => this.props.editItem(this.props.id)}>
-          {this.props.text}
+               defaultChecked={isCompleted} 
+               onClick={() => this.props.toggleComplete(id)}
+          />
+        <label htmlFor="todo" onDoubleClick={() => this.props.editItem(id)}>
+          {text}
         </label>
-        <button className="destroy" onClick={() => this.props.deleteItem(this.props.id)}></button>
+        <button className="destroy" onClick={() => this.props.deleteItem(id)}></button>
       </div>
-      <TextInput /> 
+      <TextInput 
+        {...this.props}
+        doneEditing={(text) => {this.props.doneEditing(text)}}
+      
+      /> 
     </li>
   }
 };
