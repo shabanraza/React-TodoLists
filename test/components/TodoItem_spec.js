@@ -1,10 +1,11 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import TodoItem from '../../src/components/TodoItem';
+
 import {expect} from 'chai';
 
 const {renderIntoDocument,
-       scryRenderedDOMComponentsWithTag} = TestUtils;
+       scryRenderedDOMComponentsWithTag, Simulate} = TestUtils;
 
 describe('TodoItem', () => {
   it('renders an item', () => {
@@ -12,8 +13,9 @@ describe('TodoItem', () => {
     const component = renderIntoDocument(
       <TodoItem text={text} />
     );
-    const todo = scryRenderedDOMComponentsWithTag(component, 'li');
 
+    const todo = scryRenderedDOMComponentsWithTag(component, 'li');
+    
     expect(todo.length).to.equal(1);
     expect(todo[0].textContent).to.contain('React');
   });
@@ -87,5 +89,8 @@ describe('TodoItem', () => {
 
     expect(text).to.equal('Redux');
   });
+
+
+
 
 });

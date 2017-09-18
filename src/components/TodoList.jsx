@@ -21,7 +21,7 @@ export default class TodoList extends React.Component {
         {
 					this.getItems().map(item =>
           <TodoItem 
-						key={item.text}
+						key={item.id}
             id = {item.id}
 						text={item.text} 
             isCompleted={(item) => item.status === 'completed'}

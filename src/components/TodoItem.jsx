@@ -16,10 +16,11 @@ export default class TodoItem extends React.Component {
           <input 
                type="checkbox"
                className="toggle" 
+               
                defaultChecked={isCompleted} 
                onClick={() => this.props.toggleComplete(id)}
           />
-        <label htmlFor="todo" onDoubleClick={() => this.props.editItem(id)}>
+        <label htmlFor="todo" ref="text" onDoubleClick={() => this.props.editItem(id)}>
           {text}
         </label>
         <button className="destroy" onClick={() => this.props.deleteItem(id)}></button>
