@@ -14,7 +14,7 @@ const InitialState = {
 
 
 const reducer = createReducer({
-		[toggleComplete]:(state,payload)=> {
+		[toggleComplete]:(state,payload)=> {	
 			let todos =  [...state.todos];
 			let index = todos.findIndex((item)=>item.id === payload);
 			if(todos[index].status === "active"){

@@ -9,11 +9,11 @@ const {renderIntoDocument,
 
 describe('TodoList', () => {
  it('renders a list with only completed items if the filter is completed', () => {
-    const todos = List.of(
-      Map({id: 1, text: 'React', status: 'active'}),
-      Map({id: 2, text: 'Redux', status: 'active'}),
-      Map({id: 3, text: 'Immutable', status: 'completed'})
-    );
+    const todos =  [
+        {id: 1, text: 'React', status: 'active'},
+        {id: 2, text: 'Redux', status: 'active'},
+        {id: 3, text: 'Immutable', status: 'completed'}
+      ]
     const filter = 'completed';
     const component = renderIntoDocument(
       <TodoList filter={filter} todos={todos} />
@@ -25,11 +25,11 @@ describe('TodoList', () => {
   });
 
   it('renders a list with all the items', () => {
-    const todos = List.of(
-      Map({id: 1, text: 'React', status: 'active'}),
-      Map({id: 2, text: 'Redux', status: 'active'}),
-      Map({id: 3, text: 'Immutable', status: 'completed'})
-    );
+    const todos =  [
+        {id: 1, text: 'React', status: 'active'},
+        {id: 2, text: 'Redux', status: 'active'},
+        {id: 3, text: 'Immutable', status: 'completed'}
+      ]
     const filter = 'all';
     const component = renderIntoDocument(
       <TodoList filter={filter} todos={todos} />

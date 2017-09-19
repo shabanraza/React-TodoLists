@@ -14,7 +14,6 @@ export default class TodoTools extends React.Component {
 				<div className='divitem' onClick={()=>this.props.changeFilter('active')}>Active</div>
 				<div className='divitem' onClick={()=>this.props.changeFilter('completed')}>Completed</div>
 				<div className='divitem'>clear Completed</div>
-		
-    </div>
+	</div>
   }
 };

@@ -15,6 +15,7 @@ export default class TodoHeader extends React.Component {
     return <input className="edit"
                   autoFocus={true}
                   type="text"
+                  ref="search"
                   value={this.state.text}
                   onChange={this.handleChanges.bind(this)}
                   onKeyPress={(e)=>{e.key=== 'Enter' ? this.props.addtodo(this.state.text):null}}
