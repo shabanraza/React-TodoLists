@@ -7,7 +7,7 @@ const InitialState = {
 	todos: [
       {id: 1, text: 'React', status: 'active', editing: false},
       {id: 2, text: 'Redux', status: 'active', editing: false},
-      {id: 3, text: 'Immutable', status: 'active', editing: false},
+      {id: 3, text: 'Immutable', status: 'completed', editing: false},
     ],
     filter: 'all'
 }
