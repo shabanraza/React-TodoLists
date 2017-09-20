@@ -12,7 +12,9 @@ export default class TodoList extends React.Component {
     return [];
   }
 
-  
+  isCompleted(item){
+    return item.status === 'completed';
+ }
 
   
   render() {
@@ -24,7 +26,7 @@ export default class TodoList extends React.Component {
 						key={item.id}
             id = {item.id}
 						text={item.text} 
-            isCompleted={(item) => item.status === 'completed'}
+            isCompleted={this.isCompleted(item)}
             isEditing={item.editing}
             toggleComplete={()=>this.props.toggleComplete(item.id)}
             deleteItem={()=>this.props.deleteItem(item.id)}

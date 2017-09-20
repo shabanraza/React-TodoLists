@@ -11,6 +11,7 @@ export default class TodoItem extends React.Component {
       'editing': this.props.isEditing
     });
     const { isCompleted,id,text } = this.props;
+    console.log(isCompleted)
     return <li className={itemClass}>
       <div className="view">
           <input 

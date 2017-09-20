@@ -26,8 +26,8 @@ const reducer = createReducer({
 		},
 		
 		[changeFilter]: (state,payload) => {
-			let todos = [...state.todos];
-			todos = todos.filter((item)=> item.status === payload)
+			let todos = [...InitialState.todos];
+		 	todos = todos.filter((item)=> item.status === payload)
 			return {...state,todos};
 		},
 		
