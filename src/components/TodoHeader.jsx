@@ -1,26 +1,31 @@
-import React from 'react';
+import React from "react";
 
 export default class TodoHeader extends React.Component {
- constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
-      text:this.props.text
-    }
+      text: this.props.text
+    };
   }
-  handleChanges (evt){
-    this.setState({text:evt.target.value})
+  handleChanges(evt) {
+    this.setState({ text: evt.target.value });
   }
   render() {
-    const { text } = this.props;
-    return <input className="edit"
-                  autoFocus={true}
-                  type="text"
-                  ref="search"
-                  value={this.state.text}
-                  onChange={this.handleChanges.bind(this)}
-                  onKeyPress={(e)=>{e.key=== 'Enter' ? this.props.addtodo(this.state.text):null}}
-          />
-
-                   
+    const { text, actions } = this.props;
+    return (
+      <input
+        className="edit"
+        autoFocus={true}
+        type="text"
+        ref="search"
+        value={this.state.text}
+        onChange={this.handleChanges.bind(this)}
+        onKeyPress={e => {
+          e.key === "Enter"
+            ? this.props.addtodo(this.state.text, 2324, 343534, "abc", true)
+            : null;
+        }}
+      />
+    );
   }
-};
+}
