@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register --require ./test/setup.js  \"@(src)/**/test/*@(_|.)test@(.js|.jsx)\"",
+    "test": "mocha --compilers js:babel-core/register --require ./test/setup.js  \"@(src)/**/test/*@(_|.)spec@(.js|.jsx)\"",
     "test:watch": "npm run test -- --watch --watch-extensions jsx",
     "start": "webpack-dev-server"
   },

@@ -39,11 +39,7 @@ describe("TodoHeader - number 2", () => {
     component.simulate("keypress", { key: "Enter" });
 
     expect(actions.addtodo).to.have.been.calledWith(
-      sinon.match.string,
-      sinon.match.number,
-      sinon.match.number,
-      sinon.match.string,
-      sinon.match.any
+      sinon.match.string
     );
   });
 

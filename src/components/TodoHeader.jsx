@@ -22,7 +22,7 @@ export default class TodoHeader extends React.Component {
         onChange={this.handleChanges.bind(this)}
         onKeyPress={e => {
           e.key === "Enter"
-            ? this.props.addtodo(this.state.text, 2324, 343534, "abc", true)
+            ? this.props.addtodo(this.state.text)
             : null;
         }}
       />
