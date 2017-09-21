@@ -11,14 +11,13 @@ export default class TodoItem extends React.Component {
       'editing': this.props.isEditing
     });
     const { isCompleted,id,text } = this.props;
-    console.log(isCompleted)
     return <li className={itemClass}>
       <div className="view">
           <input 
                type="checkbox"
                className="toggle" 
                
-               defaultChecked={isCompleted} 
+               defaultChecked={isCompleted || false} 
                onClick={() => this.props.toggleComplete(id)}
           />
         <label htmlFor="todo" ref="text" onDoubleClick={() => this.props.editItem(id)}>

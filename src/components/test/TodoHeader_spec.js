@@ -2,7 +2,7 @@ import React from "react";
 import TodoHeader from "../TodoHeader";
 import { shallow } from "enzyme";
 
-describe("TodoHeader - number 2", () => {
+describe("TodoHeader", () => {
   const addtodo = () => (text = "Redux");
   const component = shallow(<TodoHeader addtodo={addtodo} />);
 
@@ -34,7 +34,6 @@ describe("TodoHeader - number 2", () => {
     const component = shallow(<TodoHeader addtodo={actions.addtodo} />);
 
     expect(actions.addtodo).to.have.not.been.called;
-
     component.setState({ text: "shaban" });
     component.simulate("keypress", { key: "Enter" });
 
@@ -56,8 +55,5 @@ describe("TodoHeader - number 2", () => {
     component.simulate("change", event);
     expect(component.state().text).to.eql(event.target.value);
 
-    //     var input = findRenderedDOMComponentWithTag(component, "input");
-    //     Simulate.change(input);
-    //     Simulate.keyDown(input, { key: "Entrer", keyCode: 13, which: 13 });
   });
 });
