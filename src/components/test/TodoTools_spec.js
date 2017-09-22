@@ -18,9 +18,9 @@ describe('TodoTools',() =>  {
 					len={3}
 				/>
 			);
-
-
 			expect(component.find('.divitem').length).to.equal(5);
+
+
 
 		
 	

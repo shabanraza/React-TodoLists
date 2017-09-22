@@ -27,20 +27,17 @@ describe("TodoItem", () => {
     expect(deleteItem).to.have.not.been.called;
 
     component.find('button').simulate('click');
-    deleteItem('1')
 
-    expect(deleteItem).to.have.been.calledWith(sinon.match.string);
+    expect(deleteItem.calledOnce).to.equal(true);
     
   })
 
   it("invoke callback when checkbox is clicked",()=>{
-     //const toggleComplete = sinon.spy();
-    const actions = {
-      toggleComplete: sinon.spy()
-    };
+    
      const text = "React";
+     const toggleComplete = sinon.spy();
      const component = shallow(
-        <TodoItem text={text} toggleComplete={actions.toggleComplete}/>
+        <TodoItem text={text} toggleComplete={toggleComplete}/>
      );
 
     expect(component.find('input')).to.not.be.checked()
@@ -48,6 +45,7 @@ describe("TodoItem", () => {
     component.find('input').simulate('click');
     component.setProps({ isCompleted: true })
 
+    expect(toggleComplete.calledOnce).to.equal(true);
     expect(component.find('input')).to.be.checked()
 
   })
